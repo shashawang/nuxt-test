@@ -1,34 +1,7 @@
 <template>
   <div class="container">
     <div>
-      home page
-    </div>
-    <div>
-      <nuxt-link to="/user">to user page</nuxt-link>
-    </div>
-    <div>
-      <NuxtLink to="/"> to / </NuxtLink>
-    </div>
-    <div>
-      <NuxtLink to="/about"> to about </NuxtLink>
-    </div>
-    <div>
-      <li v-for="user in users" :key="user.id">
-        <!-- <NuxtLink :to="'/user/'+user.name">
-          {{ user.name }}
-        </NuxtLink> -->
-        <!-- <NuxtLink :to="'/user/'+(user.id==1?user.id:user.name)"> -->
-        <!-- <NuxtLink :to="'/user/'+(user.id)"> -->
-        <NuxtLink :to="'/user/'+(user.name)">
-          {{ user.id }}
-        </NuxtLink>
-      </li>
-    </div>
-    <div>
-      <nuxt-child />
-    </div>
-    <div>
-      <nuxt-child name="left" />
+      home index
     </div>
   </div>
 </template>
@@ -51,10 +24,6 @@ export default {
 .container {
   margin: 0 auto;
   min-height: 100vh;
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center; */
 }
 
 .title {

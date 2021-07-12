@@ -1,18 +1,32 @@
 <template>
   <div>
+    <Nuxt name="top" />
     <header>
       <div class="left">logo</div>
       <div class="right">logo</div>
     </header>
     <Nuxt />
+    <Visits />
     <footer>footer</footer>
   </div>
 </template>
 
+<script>
+import Visits from '~/components/Visits'
+
+export default {
+  components: { Visits }
+}
+</script>
 <style>
 header {
   display: flex;
   /* &.left {
+
+<style>
+header {
+  display: flex;
+  /* .left {
     width: 30%;
     background: yellow;
   }

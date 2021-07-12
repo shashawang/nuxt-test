@@ -1,40 +1,28 @@
 <template>
   <div class="container">
     <div>
-      home page
+      user page
     </div>
-    <div>
-      <nuxt-link to="/user">to user page</nuxt-link>
-    </div>
-    <div>
-      <NuxtLink to="/"> to / </NuxtLink>
-    </div>
-    <div>
-      <NuxtLink to="/about"> to about </NuxtLink>
-    </div>
-    <div>
-      <li v-for="user in users" :key="user.id">
-        <!-- <NuxtLink :to="'/user/'+user.name">
+    <li v-for="user in users" :key="user.id">
+        <NuxtLink :to="'/user/'+user.name">
           {{ user.name }}
-        </NuxtLink> -->
+        </NuxtLink>
         <!-- <NuxtLink :to="'/user/'+(user.id==1?user.id:user.name)"> -->
         <!-- <NuxtLink :to="'/user/'+(user.id)"> -->
-        <NuxtLink :to="'/user/'+(user.name)">
-          {{ user.id }}
-        </NuxtLink>
       </li>
-    </div>
-    <div>
-      <nuxt-child />
-    </div>
-    <div>
-      <nuxt-child name="left" />
-    </div>
+    <nuxt-child :foobar="123" />
   </div>
 </template>
 
 <script>
 export default {
+  // Key for <NuxtChild> (transitions)
+  key: to => to.fullPath,
+  // Called to know which transition to apply
+  transition (to, from) {
+    if (!from) { return 'slide-left' }
+    return +to.query.page < +from.query.page ? 'slide-right' : 'slide-left'
+  },
   async asyncData () {
     // const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
     return {
