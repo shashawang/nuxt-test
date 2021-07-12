@@ -9,15 +9,17 @@
   </div>
 </template>
 
-<style lang="scss">
+<style>
 header {
   display: flex;
-  .left {
+  /* &.left {
     width: 30%;
+    background: yellow;
   }
-  .right {
+  &.right {
     width: 70%;
-  }
+    border: 1px solid red;
+  } */
 }
 html {
   font-family:

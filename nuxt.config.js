@@ -1,3 +1,4 @@
+const postcssPresetEnv = require('postcss-preset-env');
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -36,5 +37,42 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // postcss: [
+    //   postcssPresetEnv({
+    //       stage: 0,
+    //       browsers: 'cover 90%, last 2 major versions',
+    //   }),
+    // ]
+    postcss: {
+      // Add plugin names as key and arguments as value
+      // Install them before as dependencies with npm or yarn
+      plugins: {
+        // Disable a plugin by passing false as value
+        // 'postcss-url': false,
+        // 'postcss-nested': {},
+        // 'postcss-responsive-type': {},
+        // 'postcss-hexrgba': {},
+        // 'postcss-preset-env': {
+        //   autoprefixer: {
+        //     grid: true
+        //   },
+        // },
+        'postcss-preset-env': {
+          stage: 0,
+        },
+        // 'postcss-cssnext': {}
+        
+      },
+      preset: {
+        // Change the postcss-preset-env settings
+        // autoprefixer: {
+        //   grid: true
+        // },
+        // cssnext: {
+        //   stage: 2,
+        // },
+        stage: 2,
+      }
+    }
   }
 }
