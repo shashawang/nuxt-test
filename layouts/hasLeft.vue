@@ -1,24 +1,15 @@
 <template>
   <div>
-    <Header />
+    <h1>has left layout</h1>
     <Nuxt />
-    <!-- <Visits /> -->
-
-    <footer>footer</footer>
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import Visits from '@/components/Visits.vue'
+import Visits from '~/components/Visits'
 
 export default {
-  components: { Header, Visits },
-  // layout 组件！！！！不能！！！调用 asyncData
-  asyncData({ params, error }) {
-    // console.log('params: ', params);
-    return {data: 111111}
-  },
+  components: { Visits }
 }
 </script>
 <style>

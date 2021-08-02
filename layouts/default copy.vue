@@ -1,19 +1,24 @@
 <template>
   <div>
-    <Header />
+    <Nuxt name="top" />
+    <header>
+      <div class="left">logo</div>
+      <!-- <div class="right">{{data}}</div> -->
+    </header>
     <Nuxt />
-    <!-- <Visits /> -->
+
+    <!-- 中间件demo -->
+    <Visits />
 
     <footer>footer</footer>
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import Visits from '@/components/Visits.vue'
+import Visits from '~/components/Visits'
 
 export default {
-  components: { Header, Visits },
+  components: { Visits },
   // layout 组件！！！！不能！！！调用 asyncData
   asyncData({ params, error }) {
     // console.log('params: ', params);

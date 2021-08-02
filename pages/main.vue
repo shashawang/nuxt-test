@@ -1,4 +1,5 @@
 <template lang="html">
+<!-- 命名视图demo -->
   <div class="main">
     <h1>Main page</h1>
     <p>This is an example of a named views</p>

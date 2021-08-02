@@ -1,24 +1,19 @@
 <template>
   <div>
-    <Header />
-    <Nuxt />
-    <!-- <Visits /> -->
-
-    <footer>footer</footer>
+    <h1>has wrong</h1>
+    <div>{{error}}</div>
+    <nuxt-link to="/">首 页</nuxt-link>
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import Visits from '@/components/Visits.vue'
 
 export default {
-  components: { Header, Visits },
-  // layout 组件！！！！不能！！！调用 asyncData
-  asyncData({ params, error }) {
-    // console.log('params: ', params);
-    return {data: 111111}
-  },
+  props: ['error'],
+  layout: 'hasLeft', // 不指定layout 或者值为''都会默认default布局，会显示出两次一次是单独的error page一次是有default layout 的
+  // layout(context) {
+  //   return 'default'
+  // }
 }
 </script>
 <style>

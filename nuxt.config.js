@@ -16,7 +16,7 @@ export default {
     ]
   },
   router: {
-    extendRoutes (routes, resolve) {
+    extendRoutes (routes, resolve) { // 扩展路由配置的components和chunkNames，字段要在nuxt 组件的name属性里
       let index = routes.findIndex(route => route.name === 'main')
       routes[index] = {
         ...routes[index],
@@ -29,13 +29,18 @@ export default {
         }
       }
     },
-    middleware: ['visits', 'user-agent']
+    middleware: ['visits', 'user-agent'], // 在路由上应用的中间件，每次导航（渲染？）前都会执行，可以用在config/page里，顺序依次，/layout里不能用
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['assets/main.css'],
+  css: ['~/assets/css/main.css',], // 全局css
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    // '~/plugins/element-ui.client.js'
+    {
+      src: "@/plugins/element-ui",
+      ssr: false  // 关闭ssr
+    }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -87,6 +92,17 @@ export default {
         // },
         stage: 2,
       }
-    }
+    },
+    babel: {
+      "plugins": [
+        [
+          "component",
+          {
+            "libraryName": "element-ui",
+            "styleLibraryName": "theme-chalk"
+          }
+        ]
+      ]
+    },
   }
 }

@@ -19,7 +19,7 @@ export default {
   //   return !isNaN(+params.id)
   // },
   async asyncData ({ params, error }) {
-    console.log('params', params);
+    // console.log('params', params);
     try {
       // const { data } = await axios.get(`https://jsonplaceholder.typicode.com/users/${+params.id}`)
       // return {id: params.id}
